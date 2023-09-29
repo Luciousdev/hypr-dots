@@ -34,7 +34,6 @@ git clone https://github.com/Luciousdev/hypr-dots.git && cd hypr-dots && sh inst
 ```
 
 
-
 ### Manual install
 
 For the manual install first clone the github repo:

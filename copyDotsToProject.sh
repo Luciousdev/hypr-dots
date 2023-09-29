@@ -63,6 +63,7 @@ files_to_copy=(
     ".config/cava"
     ".config/swappy"
     "Pictures/wallpapers"
+    ".config/nvim"
 )
 
 # Copy each directory/file with error handling
