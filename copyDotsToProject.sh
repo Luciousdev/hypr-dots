@@ -13,48 +13,59 @@ CPR=$(tput setaf 7)$(tput bold)"["$(tput sgr0)$(tput setaf 7)$(tput bold)PROGRES
 
 log_file="copy-dots.log"
 
-# Function to log output to the log file
+# Log function
 log() {
     echo -e "$1" | tee -a "$log_file"
 }
 
-# Function to handle errors
-handle_error() {
-    local argument=$1
+# Get the output directory
+getOutputDirectory() {
+    local outputDirectory="$1"
 
-    log "$CER - An error occurred. Exiting..."
-    exit 1
+    variable=$(echo "$outputDirectory" | cut -d'/' -f2)
+    if [ -n "$variable" ]; then
+        echo "$variable"
+    else
+        echo "No character found after the first '/'"
+    fi
+}
+
+# Copy function
+copy_with_error_handling() {
+    local functionInput="$1"
+    local source="$HOME/$functionInput"
+    local destination="./"
+
+    outputDirectory=$(getOutputDirectory "$functionInput") # Capture the function's output correctly
+    
+    if [ -e "$source" ]; then
+        cp -r "$source" "$destination" || log "$CER - An error occurred while copying the '$source' directory/file"
+        log "$COK - Copied $source -----> $PWD/$outputDirectory"
+    else
+        log "$CER - Source '$source' does not exist."
+    fi
 }
 
 
-# Copy the hypr folder to the current directory
-cp -r ~/.config/hypr/ ./ || handle_error
-log "$COK - Copied /home/$USER/.config/hypr/ to current directory."
+# List of files/directories to copy
+files_to_copy=(
+    ".config/hypr"
+    ".zshrc"
+    ".config/neofetch"
+    ".config/gtk-2.0"
+    ".config/gtk-3.0"
+    ".config/wlogout"
+    ".config/btop"
+    ".config/obs-studio"
+    ".config/Thunar"
+    ".config/xfce4"
+    ".config/foot"
+    ".config/cava"
+    ".config/swappy"
+    "Pictures/wallpapers"
+)
 
-# Copy the .zshrc file to the current directory
-cp ~/.zshrc ./ || handle_error
-log "$COK - Copied /home/$USER/.config/.zshrc to current directory."
-
-# Copy the neofetch folder to current directory
-cp -r ~/.config/neofetch/ ./ || handle_error
-log "$COK - Copied /home/$USER/.config/neofetch/ to current directory."
-
-# Copy the gtk-2.0 folder to current directory
-cp -r ~/.config/gtk-2.0/ ./ || handle_error
-log "$COK - Copied /home/$USER/.config/gtk-2.0/ to current directory."
-
-# Copy the gtk-3.0 folder to current directory
-cp -r ~/.config/gtk-3.0/ ./ || handle_error
-log "$COK - Copied /home/$USER/.config/gtk-3.0/ to current directory."
-
-# Copy the wlogout folder to current directory
-cp -r ~/.config/wlogout/ ./ || handle_error
-log "$COK - Copied /home/$USER/.config/wlogout/ to current directory."
-
-# Copy the btop folder to current directory
-cp -r ~/.config/btop/ ./ || handle_error
-log "$COK - Copied /home/$USER/.config/btop/ to current directory."
-
-# Copy the obs-studio folder to current directory
-cp -r ~/.config/obs-studio/ ./ || handle_error
-log "$COK - Copied /home/$USER/.config/obs-studio/ to current directory."
+# Copy each directory/file with error handling
+for file in "${files_to_copy[@]}"; do
+    copy_with_error_handling "$file"
+done
