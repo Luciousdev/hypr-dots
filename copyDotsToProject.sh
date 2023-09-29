@@ -29,32 +29,32 @@ handle_error() {
 
 # Copy the hypr folder to the current directory
 cp -r ~/.config/hypr/ ./ || handle_error
-log "$COK - Copied hypr/ to current directory."
+log "$COK - Copied /home/$USER/.config/hypr/ to current directory."
 
 # Copy the .zshrc file to the current directory
 cp ~/.zshrc ./ || handle_error
-log "$COK - Copied .zshrc to current directory."
+log "$COK - Copied /home/$USER/.config/.zshrc to current directory."
 
 # Copy the neofetch folder to current directory
 cp -r ~/.config/neofetch/ ./ || handle_error
-log "$COK - Copied neofetch/ to current directory."
+log "$COK - Copied /home/$USER/.config/neofetch/ to current directory."
 
 # Copy the gtk-2.0 folder to current directory
 cp -r ~/.config/gtk-2.0/ ./ || handle_error
-log "$COK - Copied gtk-2.0/ to current directory."
+log "$COK - Copied /home/$USER/.config/gtk-2.0/ to current directory."
 
 # Copy the gtk-3.0 folder to current directory
 cp -r ~/.config/gtk-3.0/ ./ || handle_error
-log "$COK - Copied gtk-3.0/ to current directory."
+log "$COK - Copied /home/$USER/.config/gtk-3.0/ to current directory."
 
 # Copy the wlogout folder to current directory
 cp -r ~/.config/wlogout/ ./ || handle_error
-log "$COK - Copied wlogout/ to current directory."
+log "$COK - Copied /home/$USER/.config/wlogout/ to current directory."
 
 # Copy the btop folder to current directory
 cp -r ~/.config/btop/ ./ || handle_error
-log "$COK - Copied btop/ to current directory."
+log "$COK - Copied /home/$USER/.config/btop/ to current directory."
 
 # Copy the obs-studio folder to current directory
 cp -r ~/.config/obs-studio/ ./ || handle_error
-log "$COK - Copied obs-studio/ to current directory."
+log "$COK - Copied /home/$USER/.config/obs-studio/ to current directory."
