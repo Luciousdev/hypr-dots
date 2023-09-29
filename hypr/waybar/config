@@ -1,0 +1,47 @@
+{
+
+    "include": "~/.config/hypr/waybar/modules",
+    "layer": "top",
+    // "mode": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "position": "bottom",
+    "spacing": 3,
+    "fixed-center": true,
+    "ipc": true,
+    "margin-bottom": 6,
+    "margin-top": 6,
+    "margin-left": 8,
+    "margin-right": 8,
+
+    "modules-left": [
+        "clock",
+        "cpu",
+        "interface", "wlan0",
+        "temperature",
+        "memory",
+        // "network",
+        "custom/weather",
+    ],
+
+    "modules-center": [
+        //"wlr/workspaces"
+	   "hyprland/workspaces"
+        // "custom/menu",
+        // "custom/updater",
+        //"custom/cycle_wall",	
+        // "custom/lock",
+    ],
+
+    "modules-right": [
+        // "hyprland/window",
+        "battery",
+        // "backlight",
+        "pulseaudio",
+        //"wireplumber", 
+        "pulseaudio#microphone",
+        // "custom/light_dark",
+        "custom/power"
+        // "tray"
+    ],
+}
