@@ -70,9 +70,10 @@ ZSH_THEME="steeef"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git laravel archlinux docker)
+plugins=(git git-extras sudo common-aliases dircycle archlinux colored-man-pages z zsh-syntax-highlighting zsh-autosuggestions laravel archlinux docker)
 
 source $ZSH/oh-my-zsh.sh
+
 
 # User configuration
 

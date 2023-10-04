@@ -45,3 +45,19 @@ if [ -d "wallpapers" ]; then
 else
     log "$CER - Folder 'wallpapers' not found in the current directory." 
 fi
+
+# Move the .zshrc file to ~/
+if [ -f ".zshrc" ]; then
+    mv .zshrc "$HOME/" || handle_error ".zshrc"
+    log "$COK - Moved .zshrc file to $HOME/"
+else
+    log "$CER - File '.zshrc' not found in the current directory."
+fi
+
+# Move .oh-my-zsh/ to ~/
+if [ -d ".oh-my-zsh" ]; then
+    mv .oh-my-zsh "$HOME/" || handle_error ".oh-my-zsh"
+    log "$COK - Moved .oh-my-zsh folder to $HOME/"
+else
+    log "$CER - Folder '.oh-my-zsh' not found in the current directory."
+fi

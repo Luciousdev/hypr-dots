@@ -1,1 +1,8 @@
 *.log
+log/
+.github/
+.git/
+plugins/
+.oh-my-zsh/.gitignore
+.oh-my-zsh/.prettierrc
+.oh-my-zsh/LICENSE.txt

@@ -18,9 +18,13 @@
         "clock",
         "custom/wlsunset",
         "custom/updater",
-	    "tray"
+        "tray"
     ],
     "modules-center": [
         "hyprland/window"
+    ],
+    "modules-right": [
+        "network",
+        "mpd"
     ]
 }

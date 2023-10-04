@@ -39,13 +39,31 @@ copy_with_error_handling() {
     outputDirectory=$(getOutputDirectory "$functionInput") # Capture the function's output correctly
     
     if [ -e "$source" ]; then
-        cp -r "$source" "$destination" || log "$CER - An error occurred while copying the '$source' directory/file"
+        sudo cp -r "$source" "$destination" || log "$CER - An error occurred while copying the '$source' directory/file"
         log "$COK - Copied $source -----> $PWD/$outputDirectory"
     else
         log "$CER - Source '$source' does not exist."
     fi
 }
 
+delete_with_error_handling() {
+    functionInput="$1"
+    source="$PWD$functionInput"
+
+    if [ -e "$source" ]; then
+        sudo rm -rf $source || log "$CER - An error occurred while deleting the '$source' directory/file"
+        log "$COK - Deleted $source"
+    else
+        log "$CER - Source '$source' does not exist"
+    fi
+}
+
+
+files_to_delete=(
+    "/.oh-my-zsh/.github/"
+    "/.oh-my-zsh/.git/"
+    "/.oh-my-zsh/custom/.git/"
+)
 
 # List of files/directories to copy
 files_to_copy=(
@@ -64,9 +82,14 @@ files_to_copy=(
     ".config/swappy"
     "Pictures/wallpapers"
     ".config/nvim"
+    ".oh-my-zsh"
 )
 
 # Copy each directory/file with error handling
 for file in "${files_to_copy[@]}"; do
     copy_with_error_handling "$file"
+done
+
+for file in "${files_to_delete[@]}"; do
+    delete_with_error_handling "$file"
 done
