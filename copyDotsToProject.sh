@@ -83,6 +83,7 @@ files_to_copy=(
     "Pictures/wallpapers"
     ".config/nvim"
     ".oh-my-zsh"
+    ".p10k.zsh"
 )
 
 # Copy each directory/file with error handling

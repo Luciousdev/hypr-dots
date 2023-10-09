@@ -61,3 +61,10 @@ if [ -d ".oh-my-zsh" ]; then
 else
     log "$CER - Folder '.oh-my-zsh' not found in the current directory."
 fi
+
+if [ -f ".p10k.zsh" ]; then
+    mv .p10k.zsh "$HOME/" || handle_error ".p10k.zsh"
+    log "$COK - Moved .p10k.zsh file to $HOME/"
+else
+    log "$CER - File '.p10k.zsh' not found in the current directory."
+fi
