@@ -40,7 +40,7 @@
         "pulseaudio",
         //"wireplumber", 
         "pulseaudio#microphone",
-        // "custom/light_dark",
+        "custom/light_dark",
         "custom/power"
         // "tray"
     ],
